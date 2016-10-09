@@ -1,13 +1,17 @@
 
 该项目意在指导开发人员在[json-editor](https://github.com/jdorn/json-editor)之上新增自定义的`format`
 
-## 自定义操作控件
+## 写在最前面
+
+想看该项目的demo的运行效果，请先安装`node`，然后`npm install`，然后就可以简单粗野地把`index.html`拖到浏览器了
+
+## 如何自定义操作控件？
 
 
-## 自定义布局
+## 如何自定义布局？
 
 
-## 自定义表单控件 之 Vue组件篇
+## 如何自定义表单控件 之 Vue组件？
 
 可参考`demos/custom-control-vue/index.js`
 
