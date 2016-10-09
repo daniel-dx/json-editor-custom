@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Basic JSON Editor Example</title>
+</head>
+
+<body>
+  <h1>Basic JSON Editor Example</h1>
+
+  <hr/>
+
+  <div id='editor_holder'></div>
+
+  <hr/>
+
+  <button id='submit'>Submit (console.log)</button>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script src="./node_modules/json-editor/dist/jsoneditor.js"></script>
+  <script src="demo.js"></script>
+
+  <script>
+      // Initialize the editor with a JSON schema
+      var editor = new JSONEditor(document.getElementById('editor_holder'),{
+        schema: {
+          type: "object",
+          properties: {
+            cValOne: {
+              type: "string",
+              title: "Custom 1",
+              format: "custom-type",
+              default: 'hello'
+            },
+            cValTwo: {
+              type: "string",
+              title: "Custom 2",
+              format: "custom-type",
+              default: 'daniel'
+            },
+            strVal: {
+              type: "string",
+              title: "String",
+              default: 'world'
+            }
+          },
+        }
+      });
+      
+      // Hook up the submit button to log to the console
+      document.getElementById('submit').addEventListener('click',function() {
+        // Get the value from the editor
+        console.log(editor.getValue());
+      });
+
+    </script>
+
+</body>
+
+</html>
