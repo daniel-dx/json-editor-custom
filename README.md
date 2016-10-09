@@ -1,29 +1,29 @@
 
 该项目意在指导开发人员在[json-editor](https://github.com/jdorn/json-editor)之上新增自定义的`format`
 
-## 写在最前面
+# 写在最前面
 
 想看该项目的demo的运行效果，请先安装`node`，然后`npm install`，然后就可以简单粗野地把`index.html`拖到浏览器了
 
-## editor的生命周期
+# editor的生命周期
 
 每一个editor都直接或间接继承自`JSONEditor.AbstractEditor`（源码文件为editor.js）,它的生命周期方法为：
 
 **init** -> **preBuild**(表单元素未初始化) -> **build**(初始化表单元素) -> **postBuild**(表单元素已渲染) -> **destroy**
 
-## 需重点研究的两个源码文件
+# 需重点研究的两个源码文件
 
 `editor.js`: 所有editor的基类
 
 `theme.js`: 构建表单元素常用的方法，通过这些方法构造的表单HTML结构可以套用多种样式框架
 
-## 如何自定义操作控件？
+# 如何自定义操作控件？
 
 
-## 如何自定义布局？
+# 如何自定义布局？
 
 
-## 如何自定义表单控件 之 Vue组件？
+# 如何自定义表单控件 之 Vue组件？
 
 可参考`demos/custom-control-vue/index.js`
 
