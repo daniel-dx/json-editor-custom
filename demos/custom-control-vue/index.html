@@ -3,23 +3,17 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Basic JSON Editor Example</title>
+  <title>Custom Control Vue</title>
 </head>
 
 <body>
-  <h1>Basic JSON Editor Example</h1>
-
-  <hr/>
+  <h1>Custom Control Vue</h1>
 
   <div id='editor_holder'></div>
 
-  <hr/>
-
-  <button id='submit'>Submit (console.log)</button>
-
-  <script src="./node_modules/vue/dist/vue.min.js"></script>
-  <script src="./node_modules/json-editor/dist/jsoneditor.js"></script>
-  <script src="demo.js"></script>
+  <script src="../../node_modules/vue/dist/vue.min.js"></script>
+  <script src="../../node_modules/json-editor/dist/jsoneditor.js"></script>
+  <script src="index.js"></script>
 
   <script>
       // Initialize the editor with a JSON schema
@@ -46,12 +40,6 @@
             }
           },
         }
-      });
-      
-      // Hook up the submit button to log to the console
-      document.getElementById('submit').addEventListener('click',function() {
-        // Get the value from the editor
-        console.log(editor.getValue());
       });
 
     </script>
