@@ -7,6 +7,8 @@
 
 增加自定义控件前，先浏览下`demos/full-features/index.html`，看已有功能是否满足需求再决定是否有必要自定义
 
+![](preview.jpg)
+
 # editor的生命周期
 
 每一个editor都直接或间接继承自`JSONEditor.AbstractEditor`（源码文件为editor.js）,它的生命周期方法为：
