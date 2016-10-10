@@ -19,6 +19,20 @@
 
 `theme.js`: 构建表单元素常用的方法，通过这些方法构造的表单HTML结构可以套用多种样式框架
 
+# 自定义控件需要重点关注以下几个方法
+
+需要考虑是否需要重写以支持每个控件最基本的配置功能
+
+- enable / disable
+
+- disable
+
+- showValidationErrors
+
+- getValue / setValue
+
+最后记得值更改的时候调用`onChange`以通过父级元素
+
 # 如何自定义操作控件？
 
 TODO

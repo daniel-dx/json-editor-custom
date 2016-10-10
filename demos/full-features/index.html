@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <title>Full Feature</title>
   <link href="../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-  <link href="../../node_modules/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet" />
   <link href="assets/sceditor/minified/themes/default.min.css" rel="stylesheet"/>
 </head>
 
@@ -14,7 +13,6 @@
   <div id="editor_holder"></div>
 
   <script src="../../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../../node_modules/selectize/dist/js/standalone/selectize.min.js"></script>
   <script src="../../node_modules/epiceditor/epiceditor/js/epiceditor.min.js"></script>
   <script src="../../node_modules/ace-builds/src-noconflict/ace.js"></script>
   <script src="assets/sceditor/minified/jquery.sceditor.min.js"></script>
@@ -221,30 +219,6 @@
                 collapsed: true
               },
             },
-            advEditor: {
-              type: 'object',
-              title: 'Advance Editor',
-              properties: {
-                md: {
-                  type: 'string',
-                  title: 'Markdown - require epiceditor',
-                  format: 'markdown'
-                },
-                code: {
-                  type: 'string',
-                  title: 'Code - require Ace Editor',
-                  format: 'javascript' // actionscript,batchfile,c,c++,cpp (alias for c++),coffee,csharp,css,dart,django,ejs,erlang,golang,groovy,handlebars,haskell,haxe,html,ini,jade,java,javascript,json,less,lisp,lua,makefile,markdown,matlab,mysql,objectivec,pascal,perl,pgsql,php,python,r,ruby,sass,scala,scss,smarty,sql,stylus,svg,twig,vbscript,xml,yaml
-                },
-                wysiwyg: {
-                  type: 'string',
-                  title: 'WYSIWYG - require SCEditor',
-                  format: 'html', // or html
-                  options: {
-                    wysiwyg: true
-                  }
-                }
-              }
-            },
             layout: {
               type: 'object',
               title: 'Layout',
@@ -303,8 +277,35 @@
                     }
                   }
                 },
+              },
+              options: {
+                collapsed: true
               }
-            }
+            },
+            advEditor: {
+              type: 'object',
+              title: 'Advance Editor',
+              properties: {
+                md: {
+                  type: 'string',
+                  title: 'Markdown - require epiceditor',
+                  format: 'markdown'
+                },
+                code: {
+                  type: 'string',
+                  title: 'Code - require Ace Editor',
+                  format: 'javascript' // actionscript,batchfile,c,c++,cpp (alias for c++),coffee,csharp,css,dart,django,ejs,erlang,golang,groovy,handlebars,haskell,haxe,html,ini,jade,java,javascript,json,less,lisp,lua,makefile,markdown,matlab,mysql,objectivec,pascal,perl,pgsql,php,python,r,ruby,sass,scala,scss,smarty,sql,stylus,svg,twig,vbscript,xml,yaml
+                },
+                wysiwyg: {
+                  type: 'string',
+                  title: 'WYSIWYG - require SCEditor',
+                  format: 'html', // or html
+                  options: {
+                    wysiwyg: true
+                  }
+                }
+              }
+            },
           }
         },
         theme: 'bootstrap3'
