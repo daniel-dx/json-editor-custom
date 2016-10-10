@@ -5,6 +5,8 @@
 
 想看该项目的demo的运行效果，请先安装`node`，然后`npm install`，然后就可以简单粗野地把`index.html`拖到浏览器了
 
+增加自定义控件前，先浏览下`demos/full-features/index.html`，看已有功能是否满足需求再决定是否有必要自定义
+
 # editor的生命周期
 
 每一个editor都直接或间接继承自`JSONEditor.AbstractEditor`（源码文件为editor.js）,它的生命周期方法为：
