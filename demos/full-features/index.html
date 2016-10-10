@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Full Feature</title>
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="../../node_modules/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet" />
+  <link href="assets/sceditor/minified/themes/default.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+  <div id="editor_holder"></div>
+
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/selectize/dist/js/standalone/selectize.min.js"></script>
+  <script src="../../node_modules/epiceditor/epiceditor/js/epiceditor.min.js"></script>
+  <script src="../../node_modules/ace-builds/src-noconflict/ace.js"></script>
+  <script src="assets/sceditor/minified/jquery.sceditor.min.js"></script>
+  <script src="../../node_modules/json-editor/dist/jsoneditor.js"></script>
+  <script src="index.js"></script>
+
+  <script>
+
+      JSONEditor.plugins.selectize.enable = true;
+      JSONEditor.defaults.options.iconlib = 'bootstrap3';
+      JSONEditor.plugins.sceditor.emoticonsEnabled = true;
+      JSONEditor.plugins.sceditor.emoticonsRoot = './assets/sceditor/';
+      JSONEditor.plugins.sceditor.style = 'assets/sceditor/minified/jquery.sceditor.default.min.css';
+      JSONEditor.plugins.epiceditor.basePath = '../../node_modules/epiceditor/epiceditor';
+
+      // Initialize the editor with a JSON schema
+      var editor = new JSONEditor(document.getElementById('editor_holder'), {
+        schema: {
+          type: 'object',
+          title: 'Full Features Demo',
+          properties: {
+            htmlType: {
+              type: 'object',
+              title: 'HTML Type',
+              properties: {
+                text: {
+                  type: 'string', 
+                  title: 'Text Type',
+                  format: 'text',
+                  propertyOrder: 1
+                },
+                textarea: {
+                  type: 'string', 
+                  title: 'Textarea Type',
+                  format: 'textarea',
+                  propertyOrder: 2
+                },
+                email: {
+                  type: 'string', 
+                  title: 'Email Type',
+                  format: 'email',
+                  propertyOrder: 3
+                },
+                number: {
+                  type: 'string', 
+                  title: 'Number Type',
+                  format: 'number',
+                  propertyOrder: 4
+                },
+                tel: {
+                  type: 'string', 
+                  title: 'Tel Type',
+                  format: 'tel',
+                  propertyOrder: 5
+                },
+                url: {
+                  type: 'string', 
+                  title: 'Url Type',
+                  format: 'url',
+                  propertyOrder: 6
+                },
+
+                color: {
+                  type: 'string', 
+                  title: 'Color Type',
+                  format: 'color',
+                  propertyOrder: 7
+                },
+                range: {
+                  type: 'string', 
+                  title: 'Range Type',
+                  format: 'range',
+                  propertyOrder: 8
+                },
+
+                date: {
+                  type: 'string', 
+                  title: 'Date Type',
+                  format: 'date',
+                  propertyOrder: 9
+                },
+                datetime: {
+                  type: 'string', 
+                  title: 'Datetime Type',
+                  format: 'datetime',
+                  propertyOrder: 10
+                },
+                datetimeLocal: {
+                  type: 'string', 
+                  title: 'Datetime-local Type',
+                  format: 'datetime-local',
+                  propertyOrder: 11
+                },
+                month: {
+                  type: 'string', 
+                  title: 'Month Type',
+                  format: 'month',
+                  propertyOrder: 12
+                },
+                week: {
+                  type: 'string', 
+                  title: 'Week Type',
+                  format: 'week',
+                  propertyOrder: 13
+                },   
+                time: {
+                  type: 'string', 
+                  title: 'Time Type',
+                  format: 'time',
+                  propertyOrder: 14
+                },
+
+                select: {
+                  type: 'string', 
+                  title: 'Single Select',
+                  format: 'select',
+                  propertyOrder: 15,
+                  enum: ['value1', 'value2', 'value3', 'value4']
+                },
+
+                multiSelectCb: {
+                  type: 'array',
+                  title: 'Multi select - checkbox display (enum length <= 8)',
+                  uniqueItems: true,
+                  items: {
+                    type: 'string',
+                    enum: ['value1', 'value2', 'value3', 'value4']
+                  }
+                },
+
+                multiSelectDd: {
+                  type: 'array',
+                  title: 'Multi select - dropdown display',
+                  uniqueItems: true,
+                  format: 'select',
+                  items: {
+                    type: 'string',
+                    enum: ['value1', 'value2', 'value3', 'value4']
+                  }                
+                }           
+              },
+              options: {
+                collapsed: true
+              },
+            },
+            link: {
+              type: 'object',
+              title: 'Link',
+              properties: {
+                link: {
+                  title: 'Link',
+                  type: 'string',
+                  format: 'url',
+                  links: [
+                    {
+                      rel: 'Link Url',
+                      href: '{{self}}',
+                      // Optional - set CSS classes for the link
+                      class: 'comment-link open-in-modal primary-text'
+                    }
+                  ],
+                  default: 'http://www.vip.com/'
+                },
+                download: {
+                  title: 'Download',
+                  type: 'string',
+                  format: 'url',
+                  links: [
+                    {
+                      rel: 'Download Url',
+                      href: '{{self}}',
+                      // Can also set `download` to a string as per the HTML5 spec
+                      'download': true
+                    }
+                  ],
+                  default: 'http://b.appsimg.com/2016/10/09/8321/14760049032170.jpg'                
+                },
+                image: {
+                  title: 'Image',
+                  type: 'string',
+                  format: 'url',
+                  links: [
+                    {
+                      href: '{{self}}',
+                      mediaType: 'image'
+                    }
+                  ],
+                  default: 'http://b.appsimg.com/2016/10/09/1444/14760064883236.png'
+                },
+                video: {
+                  title: 'Vedio',
+                  type: 'string',
+                  format: 'url',
+                  links: [
+                    {
+                      href: '{{self}}',
+                      mediaType: 'video'
+                    }
+                  ],
+                  default: 'http://www.w3school.com.cn/i/movie.ogg'       
+                }
+              },
+              options: {
+                collapsed: true
+              },
+            },
+            advEditor: {
+              type: 'object',
+              title: 'Advance Editor',
+              properties: {
+                md: {
+                  type: 'string',
+                  title: 'Markdown - require epiceditor',
+                  format: 'markdown'
+                },
+                code: {
+                  type: 'string',
+                  title: 'Code - require Ace Editor',
+                  format: 'javascript' // actionscript,batchfile,c,c++,cpp (alias for c++),coffee,csharp,css,dart,django,ejs,erlang,golang,groovy,handlebars,haskell,haxe,html,ini,jade,java,javascript,json,less,lisp,lua,makefile,markdown,matlab,mysql,objectivec,pascal,perl,pgsql,php,python,r,ruby,sass,scala,scss,smarty,sql,stylus,svg,twig,vbscript,xml,yaml
+                },
+                wysiwyg: {
+                  type: 'string',
+                  title: 'WYSIWYG - require SCEditor',
+                  format: 'html', // or html
+                  options: {
+                    wysiwyg: true
+                  }
+                }
+              }
+            },
+            layout: {
+              type: 'object',
+              title: 'Layout',
+              properties: {
+                List: {
+                  type: 'array',
+                  title: 'List',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      name: {
+                        type: 'string',
+                        title: 'Name'
+                      },
+                      gender: {
+                        type: 'boolean',
+                        title: 'Gender'
+                      }
+                    }
+                  }
+                },
+                table: {
+                  type: 'array',
+                  title: 'Table',
+                  format: 'table',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      name: {
+                        type: 'string',
+                        title: 'Name'
+                      },
+                      gender: {
+                        type: 'boolean',
+                        title: 'Gender',
+                        format: 'checkbox'
+                      }
+                    }
+                  }
+                },
+                tabs: {
+                  type: 'array',
+                  title: 'Tabs',
+                  format: 'tabs',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      name: {
+                        type: 'string',
+                        title: 'Name'
+                      },
+                      gender: {
+                        type: 'boolean',
+                        title: 'Gender'
+                      }
+                    }
+                  }
+                },
+              }
+            }
+          }
+        },
+        theme: 'bootstrap3'
+      });
+
+    </script>
+
+</body>
+
+</html>

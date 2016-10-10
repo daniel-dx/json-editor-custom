@@ -9,7 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ace-builds": "^1.2.5",
+    "bootstrap": "^3.3.7",
+    "epiceditor": "^0.2.0",
+    "jquery": "^2.1.1",
     "json-editor": "^0.7.28",
+    "selectize": "^0.12.3",
     "vue": "^2.0.1"
   }
 }

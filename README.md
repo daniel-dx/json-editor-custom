@@ -13,7 +13,7 @@
 
 # 需重点研究的两个源码文件
 
-`editor.js`: 所有editor的基类
+`editor.js`: 所有editor的基类，附上官方对该类的[说明](https://github.com/jdorn/json-editor/wiki#editor-srceditorjs)
 
 `theme.js`: 构建表单元素常用的方法，通过这些方法构造的表单HTML结构可以套用多种样式框架
 
