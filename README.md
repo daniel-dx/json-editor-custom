@@ -27,11 +27,9 @@
 
 - enable / disable
 
-- disable
+- getValue / setValue
 
 - showValidationErrors
-
-- getValue / setValue
 
 最后记得值更改的时候调用`onChange`以通知父级元素
 
