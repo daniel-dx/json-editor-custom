@@ -33,7 +33,7 @@
 
 - getValue / setValue
 
-最后记得值更改的时候调用`onChange`以通过父级元素
+最后记得值更改的时候调用`onChange`以通知父级元素
 
 # 如何自定义操作控件？
 
