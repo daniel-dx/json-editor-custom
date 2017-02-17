@@ -27,7 +27,7 @@ JSONEditor.defaults.editors.customType = JSONEditor.AbstractEditor.extend({
     // 构造表单控件
     this.wrapper = document.createElement('div');
     this.wrapper.innerHTML = [
-      '<vue-comp :model-value="modelValue" :on-model-value-changed="modelValueChanged" :border-color="\'' + this.schema.formatConfig.borderColor + '\'"></vue-comp>'
+      '<vue-comp v-model="modelValue" :border-color="\'' + this.schema.formatConfig.borderColor + '\'"></vue-comp>'
     ].join('');
     this.control = this.theme.getFormControl(this.label, this.wrapper, this.description);
     this.container.appendChild(this.control);
@@ -38,8 +38,8 @@ JSONEditor.defaults.editors.customType = JSONEditor.AbstractEditor.extend({
       data: {
         modelValue: '',
       },
-      methods: {
-        modelValueChanged(newVal) {
+      watch: {
+        modelValue(newVal) {
           self.setValue(newVal); // 同步数据：Vue组件 =》json-editor
         }
       }
@@ -51,11 +51,11 @@ JSONEditor.defaults.editors.customType = JSONEditor.AbstractEditor.extend({
 // ========================== 老套的华丽丽分割线，以下假装是个Vue组件 ========================== //
 
 Vue.component('vueComp', {
-  template: '<div>vue component: <input type="text" v-model.lazy="modelValue" :style="{\'border-color\': borderColor}"></div>',
-  props: ['modelValue', 'onModelValueChanged', 'borderColor'],
-  watch: {
-    modelValue(val) {
-      this.onModelValueChanged(val);
+  template: '<div>vue component: <input type="text" v-bind:value="value" v-on:input="updateValue($event.target.value)" :style="{\'border-color\': borderColor}"></div>',
+  props: ['value', 'borderColor'],
+  methods: {
+    updateValue(val) {
+      this.$emit('input', val);
     }
   }
 })
